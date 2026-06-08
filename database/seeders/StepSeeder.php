@@ -15,19 +15,16 @@ class StepSeeder extends Seeder
     {
         Step::create([
             'recipe_id' => 1,
-            'step_number' => 1,
             'description' => '材料を切る',
         ]);
 
         Step::create([
             'recipe_id' => 1,
-            'step_number' => 2,
             'description' => '煮る',
         ]);
 
         Step::create([
             'recipe_id' => 2,
-            'step_number' => 1,
             'description' => '乱切りにする',
         ]);
 

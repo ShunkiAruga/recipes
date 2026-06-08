@@ -8,7 +8,6 @@ class Step extends Model
 {
     protected $fillable = [
         'recipe_id',
-        'recipe_number',
         'descroption'
     ];
     

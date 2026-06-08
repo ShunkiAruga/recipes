@@ -11,10 +11,16 @@
     レシピ詳細
 </header>
 
+<form action="{{ route('recipes.delete', $recipe->id) }}" method="post" style="display:inline;">
+    @csrf
+    @method('DELETE')
+    <button type="submit">削除</button>
+</form>
+
 <div class="container">
 
     <div class="card">
-
+        
         <!-- タイトル -->
         <h1>{{ $recipe->title }}</h1>
 
@@ -38,6 +44,7 @@
 
         <!-- 手順 -->
         <h2>作り方</h2>
+
         <ol>
             @foreach ($recipe->steps as $step)
                 <li>

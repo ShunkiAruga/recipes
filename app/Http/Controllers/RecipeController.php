@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\RecipeService;
 use App\Models\Recipe;
+use App\Models\Category;
 
 class RecipeController extends Controller
 {
@@ -37,13 +38,24 @@ class RecipeController extends Controller
     // 新規作成フォーム
     public function create()
     {
-        return view('recipes.create');
+        $categorys = Category::all();
+
+        return view('recipes.create', compact('categorys'));
     }
 
     // 新規作成
     public function store(Request $request)
     {
         $this->service->createRecipe($request->all());
+
+        return redirect()->route('recipes.index');
+    }
+
+    // 削除
+    public function delete(int $id)
+    {
+        $recipe = Recipe::find($id);
+        $recipe->delete();
 
         return redirect()->route('recipes.index');
     }

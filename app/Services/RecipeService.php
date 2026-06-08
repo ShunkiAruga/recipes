@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Models\Recipe;
+use App\Models\Ingredient;
+use App\Models\Step;
 
 class RecipeService
 {
@@ -37,10 +39,41 @@ class RecipeService
     //新規作成
     public function createRecipe(array $data)
     {
-        return Recipe::create([
+        dd($data);
+        $recipe = Recipe::create([
             'category_id' => $data['category_id'],
             'title' => $data['title'],
-            'img_path' => $data['img_path'] ?? null
+            'img_path' => $data['img_path'] ?? null,
         ]);
+
+        if (isset($data['ingredients']) && is_array($data['ingredients'])) {
+            foreach ($data['ingredients'] as $ingredient) {
+                if (empty($ingredient) || empty($ingredient['name'])) {
+                    continue;
+                }
+
+                Ingredient::create([
+                    'recipe_id' => $recipe->id,
+                    'name' => $ingredient['name'],
+                    'amount' => $ingredient['amount'] ?? null,
+                ]);
+            }
+        }
+        // 工程取得
+        if (isset($data['steps']) && is_array($data['steps'])) {
+
+    foreach ($data['steps'] as $step) {
+
+        if (empty($step)) {
+            continue;
+        }
+
+        Step::create([
+            'recipe_id' => $recipe->id,
+            'description' => $step,
+        ]);
+    }
+}
+        return $recipe;
     }
 }

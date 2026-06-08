@@ -12,8 +12,8 @@ class Ingredient extends Model
         'amount',
     ];
     
-    public function ingredients()
+    public function recipe()
     {
-        return $this->belongTo(Recipe::class);
+        return $this->belongsTo(Recipe::class);
     }
 }
