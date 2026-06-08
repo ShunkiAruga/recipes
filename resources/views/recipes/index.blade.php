@@ -3,51 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>レシピ一覧</title>
-
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-        }
-
-        header {
-            background: #ff6b6b;
-            color: white;
-            padding: 15px;
-        }
-
-        .container {
-            padding: 20px;
-        }
-
-        .search-box {
-            margin-bottom: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-        }
-
-        .title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        a {
-            color: #ff6b6b;
-            text-decoration: none;
-        }
-    </style>
 </head>
 
 <body>
 
 <header>
-    🍳 レシピ一覧
+    レシピ一覧
 </header>
 
 <div class="container">
@@ -79,6 +40,7 @@
 
         </div>
     @endforeach
+    <a href="{{ route('recipes.create') }}">新規作成</a>
 
 </div>
 

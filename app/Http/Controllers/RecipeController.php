@@ -34,6 +34,12 @@ class RecipeController extends Controller
         return view('recipes.show', compact('recipe'));
     }
 
+    // 新規作成フォーム
+    public function create()
+    {
+        return view('recipes.create');
+    }
+
     // 新規作成
     public function store(Request $request)
     {
