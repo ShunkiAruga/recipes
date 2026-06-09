@@ -8,11 +8,11 @@ class Step extends Model
 {
     protected $fillable = [
         'recipe_id',
-        'descroption'
+        'description'
     ];
     
     public function recipe()
     {
-        return $this->belongTo(Recipe::class);
+        return $this->belongsTo(Recipe::class);
     }
 }

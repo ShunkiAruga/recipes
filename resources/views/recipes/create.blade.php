@@ -130,7 +130,7 @@
 
             <div>
                 <label>工程：</label>
-                <input type="text" name="description">
+                <input type="text" name="steps[]">
             </div>
 
         <!-- 登録ボタン -->

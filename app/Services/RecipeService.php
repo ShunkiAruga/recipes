@@ -39,7 +39,7 @@ class RecipeService
     //新規作成
     public function createRecipe(array $data)
     {
-        dd($data);
+        
         $recipe = Recipe::create([
             'category_id' => $data['category_id'],
             'title' => $data['title'],
@@ -61,19 +61,17 @@ class RecipeService
         }
         // 工程取得
         if (isset($data['steps']) && is_array($data['steps'])) {
+            foreach ($data['steps'] as $step) {
+                if (empty($step)) {
+                    continue;
+                }
 
-    foreach ($data['steps'] as $step) {
-
-        if (empty($step)) {
-            continue;
+                Step::create([
+                    'recipe_id' => $recipe->id,
+                    'description' => $step,
+                ]);
+            }
         }
-
-        Step::create([
-            'recipe_id' => $recipe->id,
-            'description' => $step,
-        ]);
-    }
-}
         return $recipe;
     }
 }
