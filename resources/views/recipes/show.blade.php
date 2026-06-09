@@ -17,6 +17,10 @@
     <button type="submit">削除</button>
 </form>
 
+<form action="{{ route('recipe.edit', $recipe->id)}}" method="post" style="display:inline;">
+    <button type="submit">編集</button>
+</form>
+
 <div class="container">
 
     <div class="card">

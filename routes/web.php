@@ -21,3 +21,6 @@ Route::get('/recipes/{id}', [RecipeController::class, 'show'])
 
 Route::delete('/{id}', [RecipeController::class, 'delete'])
     ->name('recipes.delete');
+
+Route::get('/recipes/edit/{id}', [RecipeController::class, 'edit'])
+    ->name('recipe.edit');

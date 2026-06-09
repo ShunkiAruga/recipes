@@ -12,6 +12,7 @@
 </header>
 
 <div class="container">
+    <a href="{{ route('recipes.create') }}">新規作成</a>
 
     <!-- 検索フォーム -->
     <form method="GET" action="{{ route('recipes.index') }}" class="search-box">
@@ -40,7 +41,6 @@
 
         </div>
     @endforeach
-    <a href="{{ route('recipes.create') }}">新規作成</a>
 
 </div>
 

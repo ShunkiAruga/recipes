@@ -59,4 +59,12 @@ class RecipeController extends Controller
 
         return redirect()->route('recipes.index');
     }
+
+    //編集
+    public function edit(int $id)
+    {
+        $item = Recipe::findOrFail($id);
+
+        return view('recipes.edit', compact('item'));
+    }
 }
